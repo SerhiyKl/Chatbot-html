@@ -21,7 +21,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (chatElement) => {
-  //  const API_URL = "http://localhost:5000";
+//    const API_URL = "http://localhost:5000";
   const API_URL = "https://Serhii111.pythonanywhere.com";
   const API_KEY = "My-secret-key";
   const messageElement = chatElement.querySelector("p");
@@ -52,6 +52,7 @@ const generateResponse = (chatElement) => {
 };
 
 const handleChat = () => {
+
   userMessage = chatInput.value.trim(); // Get user entered message and remove extra whitespace
   if (!userMessage) return;
 
@@ -70,6 +71,8 @@ const handleChat = () => {
     chatbox.scrollTo(0, chatbox.scrollHeight);
     generateResponse(incomingChatLi);
   }, 600);
+    document.getElementById("input=field").focus()
+
 };
 
 chatInput.addEventListener("input", () => {
@@ -92,6 +95,8 @@ sendChatBtn.addEventListener("click", handleChat);
 closeBtn.addEventListener("click", () =>
   document.body.classList.remove("show-chatbot")
 );
-chatbotToggler.addEventListener("click", () =>
+chatbotToggler.addEventListener("click", () =>{
   document.body.classList.toggle("show-chatbot")
+  document.getElementById("input=field").focus()
+}
 );
